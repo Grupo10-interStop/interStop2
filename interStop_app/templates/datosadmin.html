@@ -1,0 +1,68 @@
+{% extends "modelo.html" %}
+
+<!-- Titulo de la pagina -->
+{% block title %} Actualizacion de datos {% endblock %}
+
+<!--Contenido de la pagina-->
+{% block content %}
+
+<p style="color: #303c54; text-align: center"><I>Es necesario que haya procesado los datos de las encuestas antes de actualizar la información</I></p>
+
+{% comment %}<table>
+	<tbody>
+{% endcomment %}
+
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+		<form action="/formulario_inicio_admin" method="GET">	
+	<!--Contenido de la lista departamentos-->
+	<label for="departamentos">Departamento</label>
+	<select id="departamentos" name="deps">
+		{% for departamento in departamentos %}
+			<option  value={{departamento.id}}>{{departamento.nombre_depa}}</option>
+		{% endfor %}
+	</select>
+	<p>	
+	</p>
+	<!--Contenido de la lista municipios-->
+	<label for="municipios">Municipio</label>
+	<select id="municipio" name="muni">
+		{% for municipio in municipios  %}
+			{% if departamento.id == municipio.departameto_id %}
+				<option value={{municipio.id}}>{{municipio.nombre_muni}}</option>		
+			{% endif %}		
+		{% endfor %}
+	</select>
+	<p>                    
+	</p>
+	<!--lista Problemas-->
+	<label for="Problemas">Selecione su Problema:</label>
+	<select id="problemas" name="problms">
+		{% for problemades in des_problema%}
+			<option value={{problemades.id_problema}}>{{problemades.problema_nombre}}</option>
+		{% endfor %}
+	</select>
+	<p>                    
+	</p>
+	<!--lista Sector-->
+	<label for="sector">Sector afectado</label>
+	<select id="sectores" name="sect">
+		{% for sectores in sector_nombres %}
+			<option value={{sectores.id_sector}}>{{sectores.sector_nombre}}</option>
+		{% endfor %}
+	</select>
+	<p>	
+	</p>
+	<!--  opcion cantidad  -->
+	<label for="quantity">Ingrese la cantidad de afectados:</label>
+	<input type="number" id="quantity" name="cantidad" min="1" max="700" required="required" data-validation-required-message="">
+	<center>
+		<p>
+				 
+		</p>
+		<div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Guardar</button></div>
+	</center>
+		</form>
+	</div>
+</div>
+{% endblock %}

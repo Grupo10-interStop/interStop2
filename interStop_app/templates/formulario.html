@@ -1,0 +1,62 @@
+{% extends "modelo.html" %}
+
+<!-- Titulo de la pagina -->
+{% block title %} Reporte su problema de conectividad {% endblock %}
+
+<!--Contenido de la pagina-->
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <form action="/formulario/inicio" method="GET"> <!--{% csrf_token %}-->
+            <!--Lista departamentos-->
+            <label for="departementos">Selecione el Departamento:</label>
+            <select id="departamentos" name="deps">
+                {% for departamento in departamentos%}
+                    <option value={{departamento.id}}>{{departamento.nombre_depa}}</option>
+                {% endfor %}
+            </select>
+            <p>                    
+            </p>
+            <!--lista municipios-->
+            <label for="municipios">Selecione el Municipio:</label>
+            <select id="municipios" name="muni">
+                {% for municipio in municipios%}
+
+                    <option value={{municipio.id}}>{{municipio.nombre_muni}}</option>
+                {% endfor %}
+            </select>
+            <p>                    
+            </p>
+            <!--lista Problemas-->
+            <label for="Problemas">Selecione su Problema:</label>
+            <select id="problemas" name="problms">
+                {% for problemades in des_problema%}
+                    <option value={{problemades.id_problema}}>{{problemades.problema_nombre}}</option>
+                {% endfor %}
+            </select>
+            <p>                    
+            </p>
+            <!--lista sector-->
+            <p>                    
+            </p>
+            <label for="sectores">Selecione el area en que resulta afectado:</label>
+            <select id="sectores" name="sect">
+                {% for sectores in sector_nombres%}
+                    <option value={{sectores.id_sector}}>{{sectores.sector_nombre}}</option>
+                {% endfor %}
+            </select>
+            <p>                    
+            </p>    
+            <l1>Comentarios:</l1> 
+            <textarea class="form-control" id="message" name="comen" rows="4" placeholder="Comentarios" textarea></textarea>
+                <center>
+                    <p>
+                             
+                    </p>
+                    <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Guardar</button></div>
+                </center>
+        </form>    
+    </div>
+</div>
+{% endblock %}
