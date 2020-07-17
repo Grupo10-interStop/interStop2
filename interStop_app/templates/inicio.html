@@ -1,79 +1,64 @@
 {% extends "modelo.html" %}
 
-<!-- Titulo de la pagina -->
 {% block title %} Casos Reportados {% endblock %}
 
 <!--Contenido de la pagina-->
 {% block content %}
-
-
-<div class="row">
-    <div class="col-lg-8 mx-auto">
-        <center>
-<h2>Resultados</h2>
-
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Resultados" title="Type in a name">
-
-<table id="myTable">
-  <tr class="header">
-    <th style="width:60%;">Name</th>
-    <th style="width:40%;">Country</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Berglunds snabbkop</td>
-    <td>Sweden</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Koniglich Essen</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Italy</td>
-  </tr>
-  <tr>
-    <td>North/South</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Paris specialites</td>
-    <td>France</td>
-  </tr>
-</table>
-
-<script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
+<center>
+<h1>Resultado Actuales</h1>
 </center>
-</div>
-</div>
+<div id="graficaTotales"></div>
+<div id="graficaProblemas"></div>
+<p1>
+</p1>
+<div id="graficaDepartamentos"></div>
+<p1>{{prueba}}</p1>
+  <script>
+    Morris.Bar({
+      element: 'graficaTotales',
+        data: [
+          {x: 'Problemas Registrados', y: {{cantidad}}, z: {{cantidaAdmin}}, a: {{cantidaA}}},
+          {x: 'Estudio', y: {{estudiantes}}, z: {{estudiantesad}}, a: {{estudiantesA}}},
+          {x: 'Trabajo', y: {{trabajadores}}, z: {{trabajadorA}}, a: {{trabajadorAn}}},
+          {x: 'Personal', y: {{perso}}, z: {{pesoAd}}, a: {{perAn}} }
+        ],
+      xkey: 'x',
+      ykeys: ['y', 'z', 'a'],
+      labels: ['Total', 'Administrador', 'Anonimos']
+      }).on('click', function(i, row){
+      console.log(i, row);
+    });
+</script>
+<script>
+  Morris.Bar({
+    element: 'graficaProblemas',
+    data: [
+      {x: 'Problemas Registrados', y: {{cantidad}}, z: {{cantidaAdmin}}, a: {{cantidaA}}}
+
+    ],
+    xkey: 'x',
+    ykeys: ['y', 'z', 'a', 'b'],
+    labels: ['Mala Señal', 'No cuento Con dinero', 'No hay cobertura en mi casa', 'No cuento con un dispositivo']
+  }).on('click', function(i, row){
+    console.log(i, row);
+  });
+  </script>
+
+  <script>
+    Morris.Bar({
+    element: 'graficaDepartamentos',
+    data: [
+      {% for canti in DatosDepartamento%}
+      {x: '{{canti.depa}}', y: {{canti.cantidad}}},
+      {% endfor %}
+    ],
+    xkey: 'x',
+    ykeys: ['y'],
+    labels: ['Registrados']
+  }).on('click', function(i, row){
+    console.log(i, row);
+  });
+  </script>
+
+
 {% endblock %}
