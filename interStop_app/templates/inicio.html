@@ -12,6 +12,7 @@
 <p1>
 </p1>
 <div id="graficaDepartamentos"></div>
+
 <p1>{{prueba}}</p1>
   <script>
     Morris.Bar({
@@ -48,9 +49,20 @@
     Morris.Bar({
     element: 'graficaDepartamentos',
     data: [
-      {% for canti in DatosDepartamento%}
-      {x: '{{canti.depa}}', y: {{canti.cantidad}}},
-      {% endfor %}
+      {x: 'Ahuachapán', y: {{ahu}} },
+      {x: 'Santa Ana', y: {{santa}} },
+      {x: 'Sonsonate', y: {{sonso}} },
+      {x: 'La Libertad', y: {{libetad}} },
+      {x: 'Chalatenango', y: {{chalate}} },
+      {x: 'San Salvador', y: {{salvador}} },
+      {x: 'Cuscatlán', y: {{cusca}} },
+      {x: 'La Paz', y: {{paz}} },
+      {x: 'Cabañas', y: {{cabañas}} },
+      {x: 'San Vicente', y: {{vicente}} },
+      {x: 'Usulután', y: {{usulutan}} },
+      {x: 'Morazán', y: {{mora}} },
+      {x: 'San Miguel', y: {{miguel}} },
+      {x: 'La Unión', y: {{union}} }
     ],
     xkey: 'x',
     ykeys: ['y'],

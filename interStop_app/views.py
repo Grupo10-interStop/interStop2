@@ -10,9 +10,9 @@ import datetime
 
 
 # Create your views here.
-class dato:
-    cantidad=2
-    Depa=""
+class Dato:
+    depar=""
+    cantidad=0
 
 def recuperar(a):
     registro=Problema.objects.filter(id_departamentop=a)
@@ -77,7 +77,7 @@ def inicioFormulario(request):
         problemas.fecha=fecha
         problemas.save()
 
-        return render(request, "inicio.html")
+        return render(request, "gracias.html")
 
 def inicio(request):
         #PRoblemas totales
@@ -131,34 +131,36 @@ def inicio(request):
         can_sin_aparato=sin_aparato.count()
 
         #Recuperar datos por departamento
-        can_dep=[1,2,3,4,1,1,1,1,1,1,1,1,1,1]
+        
+        can_dep=[1,2,3,4,5,6,7,8,9,10,11,12,13,14]
         for n in [0,1,2,3,4,5,6,7,8,9,10,11,12,13]:
             num=n+1
             can_dep[n] = recuperar(num)
-        
-        departamentos = Departamento.objects.all()
-        nom_dep=["","","","","","","","","","","","","",""]
-        n=0
-        for dep in departamentos:
-            nom_dep[n]=dep.nombre_depa
-            n=n+1
-        
-        depar=[dato,dato,dato,dato,dato,dato,dato,dato,dato,dato,dato,dato,dato,dato]
-        for a in [0,1,2,3,4,5,6,7,8,9,10,11,12,13]:
-            depar[a].Depa=nom_dep[a]
-            depar[a].cantidad=can_dep[a]
-
-        
         #Prueba metodo
-        cantidadprueba=recuperar("'3'")
-        cantidadprueba=can_dep[1]
+        ahuachapan=can_dep[0]
+        santaana=can_dep[1]
+        sonsonate=can_dep[2]
+        libertad=can_dep[3]
+        chalae=can_dep[4]
+        san_salvador=can_dep[5]
+        cuscatlam=can_dep[6]
+        paz=can_dep[7]
+        cabañas=can_dep[8]
+        vicente=can_dep[9]
+        usulutan=can_dep[10]
+        morazan=can_dep[11]
+        miguel=can_dep[12]
+        union=can_dep[13]
 
 
         return render(request, "inicio.html", {"cantidad":cantidad_total, "cantidaA":cantida_anonimos, 
         "cantidaAdmin":cantida_administrador, "estudiantes":cantida_estudiantes, "estudiantesad":cantida_estudiantes_admin,
         "estudiantesA":cantida_estudiantes_a, "trabajadores":cantida_trabajadores,"trabajadorA":cantida_trabajadores_a,
         "trabajadorAn":cantida_trabajadores_anoni,"perso":cantida_per, "pesoAd":cantida_per_ad, "perAn":cantida_per_anoni,
-        "prueba":cantidadprueba, "DatosDepartamento":depar})
+        "DatosDepartamento":can_dep, "ahu":ahuachapan,"santa":santaana,"sonso":sonsonate,
+        "libetad":libertad,"chalate":chalae,"salvador":san_salvador, "cusca":cuscatlam,"paz":paz,"cabañas":cabañas,"vicente":vicente,
+        "usulutan":usulutan,"mora":morazan,"miguel":miguel, "union":union
+        })
 
 def Formulario_admin(request):
     departamentos = Departamento.objects.all()
@@ -191,4 +193,4 @@ def inicio_Formulario_admin(request):
             problemas.fecha=fecha
             problemas.save()
         
-        return render(request, "inicio.html")
+        return render(request, "gracias.html")
