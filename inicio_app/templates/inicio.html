@@ -1,0 +1,18 @@
+{% extends "modelo_inicio.html" %}
+
+<!-- Titulo de la pagina -->
+{% block title %} Iniciar Sesion {% endblock %}
+
+<!--Contenido de la pagina-->
+{% block content %}
+
+   <form action="/iniciar/" method="GET">
+    
+     <center> <p>Usuario:    <input type="text" name="usuario"> </p>
+      <p>Contraseña: <input type="text" name="contraseña"></p>
+      <div><p style="background: aquamarine;color: aquamarine"></p></div>
+      <p> <input type="submit" value="Iniciar Sesion"></p>
+      <p> <input type="submit" value="Regresar"></p></center>
+    
+    </form>
+    {% endblock %}

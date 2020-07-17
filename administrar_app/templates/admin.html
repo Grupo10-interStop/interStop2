@@ -1,0 +1,29 @@
+{% extends "modelo_admin.html" %}
+
+<!-- Titulo de la pagina -->
+{% block title %} Administrar {% endblock %}
+
+<!--Contenido de la pagina-->
+{% block content %}
+
+<form action="/iniciar/" method="GET">
+    
+   <center> <p>  <input type="submit" value="Modificar Encuesta">&nbsp &nbsp &nbsp &nbsp <input type="submit" value="Ingresar datos rápido">&nbsp &nbsp &nbsp &nbsp<input type="submit" value="Inicio"></p>
+   <div> <p></p></div>
+   <br></br>
+   <br></br>
+   <p> Departamento: 
+       &nbsp &nbsp &nbsp<select name="OS">
+       <option value="1">San Salvador</option> 
+       </select>
+       &nbsp &nbsp &nbsp<input type="submit" value="Eliminar información">
+   </p>
+   
+   <p>Municipio: 
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<select name="OS">
+       <option value="1">San Salvador</option> 
+       </select>
+       &nbsp &nbsp &nbsp<input type="submit"  value="Eliminar informacion"></center>
+  
+ </form>
+    {% endblock %}
