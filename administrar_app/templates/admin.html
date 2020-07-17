@@ -6,12 +6,16 @@
 <!--Contenido de la pagina-->
 {% block content %}
 
-<form action="/iniciar/" method="GET">
+
     
-   <center> <p>  
-      <input type="submit" value="Modificar Encuesta">&nbsp &nbsp &nbsp &nbsp 
-      <input type="submit" value="Ingresar datos rápido">&nbsp &nbsp &nbsp &nbsp
-      <input type="submit" value="Inicio"></p>
+   <center> <p> 
+      <form action="modificar/" method="GET">
+      <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Modificar Encuesta</button></div> 
+      </form>
+
+      <form action="formulario/" method="GET">
+         <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Formulario Administrador</button></div> 
+      </form>
    <div> <p></p></div>
    <br></br>
    <br></br>
@@ -28,5 +32,5 @@
        </select>
        &nbsp &nbsp &nbsp<input type="submit"  value="Eliminar informacion"></center>
   
- </form>
+ 
     {% endblock %}
