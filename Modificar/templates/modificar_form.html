@@ -5,22 +5,41 @@
 
 <!--Contenido de la pagina-->
 {% block content %}
-<form action="/iniciar/" method="GET">
+
     
-    <p>Agregar un problema:    <input type="text" name="problema_nuevo"> <input type="submit" value="Agregar"> </p>
-    <p>Eliminar un problema: 
-        <select name="OS">
-        <option value="1">Windows Vista</option> 
+        <form action="agregar_problema/" method="GET">
+            <p>Agregar un problema: <input type="text" name="problema_nuevo" &nbsp class="form-group"> &nbsp&nbsp<button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">agregar </button> 
+        </form> </p>
+
+        <form action="agregar_sector/" method="GET">
+            <p>Agregar un Sector: <input type="text" name="sector_nuevo" &nbsp class="form-group"> &nbsp&nbsp&nbsp<button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">agregar </button> 
+            </form>
+         
+        <form action="eliminar_problema/" method="GET"> 
+        <label for="Problemas">Selecione su Problema:</label>
+        <select id="problemas" name="problms">
+            {% for problemades in des_problema%}
+                <option value={{problemades.id_problema}}>{{problemades.problema_nombre}}</option>
+            {% endfor %}
         </select>
-        <input type="submit" value="Eliminar">
+        <button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Eliminar Problema</button>
+        
+    
+
     </p>
-    <p>Agregar un sector en el que afecta:    <input type="text" name="sector_nuevo"> <input type="submit" name="agregarsector" value="Agregar"> </p>
+
+        <form action="eliminar_sector/" method="GET"> 
     <p>Eliminar un sector en el que afecta: 
-        <select name="OS">
-        <option value="1">Windows Vista</option> 
+        <label for="sectores">Selecione el area en que resulta afectado:</label>
+        <select id="sectores" name="sect">
+            {% for sectores in sector_nombres%}
+                <option value={{sectores.id_sector}}>{{sectores.sector_nombre}}</option>
+            {% endfor %}
         </select>
-        <input type="submit"  value="Eliminar">
-   
-  </form>
+        <button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Eliminar sector</button>
+    
+    </form>
+    </form>    
+</div>
 
 {% endblock %}

@@ -60,8 +60,8 @@ def enviar(request):
     return HttpResponse(mensaje) 
 
 def inicioFormulario(request):
-        dep="%r"%request.GET["deps"]
-        mun="%r"%request.GET["muni"]
+        dep=request.GET["deps"]
+        mun=1
         prob="%r"%request.GET["problms"]
         sec="%r"%request.GET["sect"]
         come="%r"%request.GET["comen"]
@@ -173,7 +173,7 @@ def Formulario_admin(request):
 
 def inicio_Formulario_admin(request):
         dep=request.GET["deps"]
-        mun=request.GET["muni"]
+        mun=1
         prob="%r"%request.GET["problms"]
         sec="%r"%request.GET["sect"]
         come="Agregado por administrador"

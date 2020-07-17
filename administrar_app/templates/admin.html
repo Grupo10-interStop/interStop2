@@ -6,7 +6,7 @@
 <!--Contenido de la pagina-->
 {% block content %}
 
-
+<div class="col-lg-8 mx-auto">
     
    <center> <p> 
       <form action="modificar/" method="GET">
@@ -16,21 +16,17 @@
       <form action="formulario/" method="GET">
          <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Formulario Administrador</button></div> 
       </form>
-   <div> <p></p></div>
-   <br></br>
-   <br></br>
+   <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">- - Eliminar - -</h2>
+   <form action="/eliminar_seguro" method="GET">
+      <p></p>
    <p> Departamento: 
-       &nbsp &nbsp &nbsp<select name="OS">
-       <option value="1">San Salvador</option> 
-       </select>
-       &nbsp &nbsp &nbsp<input type="submit" value="Eliminar información">
+      <select name="deps">
+         {% for departamento in departamentos%}
+            <option value={{departamento.id}}>{{departamento.nombre_depa}}</option>
+         {% endfor %}
+      </select>
+      <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Eliminar</button></div> 
    </p>
-   
-   <p>Municipio: 
-      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<select name="OS">
-       <option value="1">San Salvador</option> 
-       </select>
-       &nbsp &nbsp &nbsp<input type="submit"  value="Eliminar informacion"></center>
-  
+   </form>
  
     {% endblock %}

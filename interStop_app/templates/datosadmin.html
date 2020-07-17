@@ -24,15 +24,6 @@
 	</select>
 	<p>	
 	</p>
-	<!--Contenido de la lista municipios-->
-	<label for="municipios">Municipio</label>
-	<select id="municipio" name="muni">
-		{% for municipio in municipios  %}
-			{% if departamento.id == municipio.departameto_id %}
-				<option value={{municipio.id}}>{{municipio.nombre_muni}}</option>		
-			{% endif %}		
-		{% endfor %}
-	</select>
 	<p>                    
 	</p>
 	<!--lista Problemas-->

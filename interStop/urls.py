@@ -25,6 +25,12 @@ from Modificar.views import form_mod
 from administrar_app.views import administrar
 #inicio
 from inicio_app.views import iniciar
+from administrar_app.views import eliminar_seguro
+from administrar_app.views import eliminar_eliminado
+from Modificar.views import agregar_problema
+from Modificar.views import agregar_sector
+from Modificar.views import eliminar_problema
+from Modificar.views import eliminar_sector
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -41,6 +47,14 @@ urlpatterns = [
     path('iniciarsesion/',iniciar),
     path('administrar/', administrar),
     path('formulario/administrar/', administrar),
+    path('eliminar_seguro', eliminar_seguro),
+    path('eliminado_permanente/', eliminar_eliminado),
+    path('eliminado_permanente/formulario/',views.Formulario_admin),
+    path('eliminado_permanente/modificar/',views.Formulario_admin),
+    path('administrar/modificar/agregar_problema/',agregar_problema),
+    path('administrar/modificar/agregar_sector/',agregar_sector),
+    path('administrar/modificar/eliminar_problema/',eliminar_problema),
+    path('administrar/modificar/eliminar_problema/',eliminar_sector),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

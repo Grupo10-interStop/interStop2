@@ -1,0 +1,26 @@
+{% extends "modelo.html" %}
+<!-- Titulo de la pagina -->
+{% block title %} Esta seguro de Eliminar {% endblock %}
+
+<!--Contenido de la pagina-->
+{% block content %}
+
+<form action="administrar/" method="GET">
+    <center>
+    <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">NO</button></div>
+    </center> 
+</form>
+<form action="eliminado_permanente/" method="GET">
+    <center>
+        
+<p style="color: #303c54; text-align: center"><I>Para confirmar, seleccione otra vez</I></p>
+        <p> Departamento: 
+            <select name="deps">
+               {% for departamento in departamentos%}
+                  <option value={{departamento.id}}>{{departamento.nombre_depa}}</option>
+               {% endfor %}
+            </select>
+    <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">SI</button></div>
+    </center> 
+</form>
+{% endblock %}
