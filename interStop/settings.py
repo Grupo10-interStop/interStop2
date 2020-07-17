@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'interStop_app',
     'Modificar',
+    'inicio_app',
+    'administrar_app',
 ]
 
 MIDDLEWARE = [

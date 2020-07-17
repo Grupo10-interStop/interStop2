@@ -12,4 +12,4 @@ def iniciar1(request):
 
 def iniciar(request):
     
-    return render(request, "inicio.html")
+    return render(request, "iniciosesion.html")
