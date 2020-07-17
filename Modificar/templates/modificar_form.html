@@ -1,0 +1,26 @@
+{% extends "Modificar.html" %}
+
+<!-- Titulo de la pagina -->
+{% block title %} Modificar {% endblock %}
+
+<!--Contenido de la pagina-->
+{% block content %}
+<form action="/iniciar/" method="GET">
+    
+    <p>Agregar un problema:    <input type="text" name="problema_nuevo"> <input type="submit" value="Agregar"> </p>
+    <p>Eliminar un problema: 
+        <select name="OS">
+        <option value="1">Windows Vista</option> 
+        </select>
+        <input type="submit" value="Eliminar">
+    </p>
+    <p>Agregar un sector en el que afecta:    <input type="text" name="sector_nuevo"> <input type="submit" name="agregarsector" value="Agregar"> </p>
+    <p>Eliminar un sector en el que afecta: 
+        <select name="OS">
+        <option value="1">Windows Vista</option> 
+        </select>
+        <input type="submit"  value="Eliminar">
+   
+  </form>
+
+{% endblock %}
