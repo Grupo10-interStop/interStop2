@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from interStop_app.models import Departamento
 from interStop_app.models import Problema
 from interStop_app.models import ProblemaDes
@@ -6,6 +7,7 @@ from interStop_app.models import ProblemaDes
 
 # Create your views here.
 def administrar(request):
+
     departamentos = Departamento.objects.all()
     return render(request, "admin.html", {"departamentos":departamentos}) 
 def eliminar_seguro(request):

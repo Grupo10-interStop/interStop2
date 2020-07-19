@@ -25,6 +25,8 @@ from Modificar.views import form_mod
 from administrar_app.views import administrar
 #inicio
 from inicio_app.views import iniciar
+from inicio_app.views import secioniniciada
+from inicio_app.views import login
 from administrar_app.views import eliminar_seguro
 from administrar_app.views import eliminar_eliminado
 from Modificar.views import agregar_problema
@@ -44,7 +46,8 @@ urlpatterns = [
     path('administrar/formulario/', views.Formulario_admin),
     path('formulario_inicio_admin/', views.inicio_Formulario_admin),
     path('administrar/modificar/',form_mod),
-    path('iniciarsesion/',iniciar),
+    path('login/',login),
+    path('login/gracias', secioniniciada),
     path('administrar/', administrar),
     path('formulario/administrar/', administrar),
     path('eliminar_seguro', eliminar_seguro),
